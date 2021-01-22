@@ -26,29 +26,37 @@ async function doSubmit() {
         console.log(weatherData.weather[0].main);
         console.log(temperature);
 
-        var type
-        if (temperature < 5) {
-            type = 'ice'
-            console.log(type);
-        } else if (temperature >= 5 && temperature < 10) {
-            type = 'water'
-            console.log(type);
-        } else if (temperature >= 12 && temperature < 15) {
-            type = 'grass'
+        var type;
+
+        if (isRaining == 'Rain') {
+            type = 'electric'
             console.log(type)
-        } else if (temperature >= 15 && temperature < 21) {
-            type = 'ground'
-            console.log(type)
-            //temp 22?
-        } else if (temperature >= 23 && temperature < 27) {
-            type = 'bug'
-            console.log(type)
-        } else if (temperature >= 27 && temperature < 33) {
-            type = 'rock'
-            console.log(type)
-        } else if (temperature > 33) {
-            type = 'fire'
-            console.log(type)
+        } else {
+            if (temperature < 5) {
+                type = 'ice'
+                console.log(type);
+            } else if (temperature >= 5 && temperature < 10) {
+                type = 'water'
+                console.log(type);
+            } else if (temperature >= 12 && temperature < 15) {
+                type = 'grass'
+                console.log(type)
+            } else if (temperature >= 15 && temperature < 21) {
+                type = 'ground'
+                console.log(type)
+                //temp 22?
+            } else if (temperature >= 23 && temperature < 27) {
+                type = 'bug'
+                console.log(type)
+            } else if (temperature >= 27 && temperature < 33) {
+                type = 'rock'
+                console.log(type)
+            } else if (temperature > 33) {
+                type = 'fire'
+                console.log(type)
+            } else {
+                console.log('Não há um Pokemon atribuído para essa temperatura')
+            }
         }
 
 
@@ -56,21 +64,7 @@ async function doSubmit() {
         const pokemonData = await pokemonResponse.json();
         console.log(pokemonData);
 
-    }
-
-
-
-
-
-
-
-    catch (err) {
+    } catch (err) {
         console.log(err);
     }
-    finally {
-
-    }
-
-    // switch ()
-
 }
