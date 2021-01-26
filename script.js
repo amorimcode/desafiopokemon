@@ -5,6 +5,15 @@ function getWeather(city) {
 function getPokemon(type) {
     return fetch(`https://pokeapi.co/api/v2/type/${type}`)
 }
+function pokePhoto(pokemonName) {
+    return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+}
+function clear() {
+    let result = document.getElementById('result')
+    let photoDisplay = document.getElementById('photoDisplay')
+    result.innerHTML = ''
+    photoDisplay.innerHTML = ''
+}
 
 const form = document.querySelector('#weather_form');
 form.addEventListener("submit", el => {
@@ -26,7 +35,6 @@ async function doSubmit() {
         console.log(temperature);
 
         var type;
-        // var isRaining
 
         if (weatherMain == 'Rain') {
             type = 'electric'
@@ -67,12 +75,23 @@ async function doSubmit() {
                 console.log(type)
             }
         }
+
         const pokemonResponse = await getPokemon(type)
         const pokemonData = await pokemonResponse.json();
         const pokemonName = pokemonData.pokemon[Math.floor(Math.random() * pokemonData.pokemon.length)].pokemon.name
         console.log(pokemonName)
+
+        const photoResponse = await pokePhoto(pokemonName)
+        console.log(photoResponse)
+        const photoData = await photoResponse.json();
+        const photo = photoData.sprites.front_shiny
+        console.log(photoData)
+        console.log(photo)
+        
         let result = document.getElementById('result')
+        let photoDisplay = document.getElementById('photoDisplay') 
         result.innerHTML = `Temperatura: ${temperature}ºC 🌡️ \n Está chovendo? ${isRaining} \n Pokemon: ${pokemonName}`
+        photoDisplay.innerHTML =  `<img src="${photo}">`
 
 
 
