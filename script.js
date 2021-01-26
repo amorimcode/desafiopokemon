@@ -13,7 +13,7 @@ form.addEventListener("submit", el => {
 
 async function doSubmit() {
     const city = document.querySelector('#city');
-    const weather_el = document.querySelector('#city');
+    const weather_el = document.querySelector('#result');
     console.log(city.value)
     weather_el.innerHTML = '<div class="spinner-grow" role="status" ><span></span></div>'
 
@@ -26,53 +26,54 @@ async function doSubmit() {
         console.log(temperature);
 
         var type;
-        var isRaining
+        // var isRaining
 
         if (weatherMain == 'Rain') {
             type = 'electric'
-            isRaining = 'Sim'
+            isRaining = 'Sim 🌧️'
             console.log(type)
         } else {
             if (temperature < 5) {
                 type = 'ice'
-            isRaining = 'Não'
+                isRaining = 'Não ❌'
                 console.log(type);
             } else if (temperature >= 5 && temperature < 10) {
                 type = 'water'
-            isRaining = 'Não'
+                isRaining = 'Não ❌'
                 console.log(type);
             } else if (temperature >= 12 && temperature < 15) {
                 type = 'grass'
-            isRaining = 'Não'
+                isRaining = 'Não ❌'
                 console.log(type)
             } else if (temperature >= 15 && temperature < 21) {
                 type = 'ground'
-            isRaining = 'Não'
+                isRaining = 'Não ❌'
                 console.log(type)
                 //temp 22?
             } else if (temperature >= 23 && temperature < 27) {
                 type = 'bug'
-            isRaining = 'Não'
+                isRaining = 'Não ❌'
                 console.log(type)
             } else if (temperature >= 27 && temperature < 33) {
                 type = 'rock'
-            isRaining = 'Não'
+                isRaining = 'Não ❌'
                 console.log(type)
             } else if (temperature > 33) {
                 type = 'fire'
-            isRaining = 'Não'
                 console.log(type)
             } else {
-                console.log('Não há um Pokemon atribuído para essa temperatura')
+                type = 'normal'
+                isRaining = 'Não ❌'
+                console.log(type)
             }
         }
-
         const pokemonResponse = await getPokemon(type)
         const pokemonData = await pokemonResponse.json();
         const pokemonName = pokemonData.pokemon[Math.floor(Math.random() * pokemonData.pokemon.length)].pokemon.name
         console.log(pokemonName)
         let result = document.getElementById('result')
-        result.innerHTML = `Temperatura: ${temperature}ºC \n Está chovendo? ${isRaining} \n Pokemon: ${pokemonName}`
+        result.innerHTML = `Temperatura: ${temperature}ºC 🌡️ \n Está chovendo? ${isRaining} \n Pokemon: ${pokemonName}`
+
 
 
     } catch (err) {
