@@ -11,9 +11,9 @@ function pokePhoto(pokemonName) {
 
 const btn = document.querySelector('#clearButton')
 btn.addEventListener('click', () => {
-    let result = document.getElementById('result')
-    let photoDisplay = document.getElementById('photoDisplay')
-    let input = document.querySelector("#city")
+    let result = document.getElementById('result');
+    let photoDisplay = document.getElementById('photoDisplay');
+    let input = document.querySelector("#city");
     input.value = ''
     result.innerHTML = ''
     photoDisplay.innerHTML = ''
@@ -27,7 +27,6 @@ form.addEventListener("submit", el => {
 async function doSubmit() {
     const city = document.querySelector('#city');
     const weather_el = document.querySelector('#result');
-    console.log(city.value)
     weather_el.innerHTML = '<div class="spinner-grow" role="status" ><span></span></div>'
 
     try {
@@ -86,6 +85,5 @@ async function doSubmit() {
         let photoDisplay = document.getElementById('photoDisplay')
         result.innerHTML = 'Erro! Por favor preencha corretamente.'
         photoDisplay.innerHTML = ''
-        console.log(err);
     }
 }
