@@ -17,14 +17,12 @@
     <link rel="manifest" href="/site.webmanifest">
 
 </head>
+
 <body class="jumbotron">
     <div class="container section">
         <div class="row justify-content-center">
             <!-- title -->
             <h1>Desafio Pokémon</h1>
-        </div>
-        <!-- inputs -->
-        <div class='row justify-content-center'>
             <form id='weather_form'>
                 <div class="form-group">
                     <label for="formGroupExampleInput">Pesquise uma cidade de qualquer lugar do mundo:</label>
@@ -32,13 +30,15 @@
                         placeholder="Digite aqui" required>
                     <button type="submit" class="btn btn-primary mt-2" id='button'
                         onclick="doSubmit()">Pesquisar</button>
+                        <button type="button" class="btn btn-secondary mt-2" id='button'
+                        onclick="clear()">Limpar</button>
                 </div>
             </form>
         </div>
         <!-- Content-->
         <div class="row justify-content-center">
-            <pre class="mt-4" id='result'></pre>
-    
+            <pre class="mt-4 lead" id='result'></pre>
+            <pre class="mt-4 lead" id='photoDisplay'></pre>
         </div>
     </div>
     <footer class="text-center">
@@ -59,5 +59,4 @@
         crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
-
 </html>
