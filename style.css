@@ -1,3 +1,12 @@
+body {
+  background-image: url(./media/background.png);
+  background-position: center;
+}
+
+div.container {
+  align-content: center;
+}
+
 .jumbotron {
   margin-bottom: 0px;
 }
@@ -13,18 +22,7 @@
 #footerText {
   color: rgb(255, 255, 255);
   align-content: bottom;
-  
-}
-#button {
-  
-}
-div.container {
-  align-content: center;
-}
-
-body {
-  background-image: url(./media/background.png);
-  background-position: center;
+  padding: 5px;
 }
 .section {
   background-color: white;
@@ -34,6 +32,4 @@ body {
   text-align: start;
   margin: auto;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.342);
-}
-pre {
 }

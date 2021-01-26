@@ -35,8 +35,6 @@ async function doSubmit() {
         const weatherData = await weatherResponse.json();
         const weatherMain = weatherData.weather[0].main
         const temperature = (weatherData.main.temp - 273.15).toFixed(2);
-        console.log(weatherData.weather[0].main);
-        console.log(temperature);
 
         var type;
 
@@ -76,30 +74,25 @@ async function doSubmit() {
             } else {
                 type = 'normal'
                 isRaining = 'Não ❌'
-                console.log(type)
             }
         }
 
         const pokemonResponse = await getPokemon(type)
         const pokemonData = await pokemonResponse.json();
         const pokemonName = pokemonData.pokemon[Math.floor(Math.random() * pokemonData.pokemon.length)].pokemon.name
-        console.log(pokemonName)
 
         const photoResponse = await pokePhoto(pokemonName)
-        console.log(photoResponse)
         const photoData = await photoResponse.json();
         const photo = photoData.sprites.front_shiny
-        console.log(photoData)
-        console.log(photo)
         
         let result = document.getElementById('result')
         let photoDisplay = document.getElementById('photoDisplay') 
         result.innerHTML = `Temperatura: ${temperature}ºC 🌡️ \n Está chovendo? ${isRaining} \n Pokemon: ${pokemonName}`
         photoDisplay.innerHTML =  `<img src="${photo}">`
 
-
-
     } catch (err) {
+        let result = document.getElementById('result');
+        result.innerHTML = 'Ocorreu um erro, por favor tente novamente.'
         console.log(err);
     }
 }
