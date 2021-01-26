@@ -1,24 +1,23 @@
-body {
-  background-color: rgb(68, 135, 211);
-  font: normal 15pt Verdana;
-  text-align: center;
+.jumbotron {
+  margin-bottom: 0px;
 }
 
-header {
-  color: white;
+.footer {
+  background-color: #343a40;
+  margin: 0px;
+  margin-top: 0px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  width: 100%;
 }
-
-.container {
-  background-color: white;
-  border-radius: 10px;
-  padding: 15px;
-  width: 500px;
-  text-align: start;
-  margin: auto;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.342);
+#footerText {
+  color: #ccc;
+  align-content: center;
+  
 }
-footer {
-  color: white;
-  text-align: center;
-  font-style: italic;
+#button {
+  
+}
+div.container {
+  align-content: center;
 }

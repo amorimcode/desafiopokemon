@@ -13,7 +13,7 @@ form.addEventListener("submit", el => {
 
 async function doSubmit() {
     const city = document.querySelector('#city');
-    const weather_el = document.querySelector('#city');
+    const weather_el = document.querySelector('#result');
     console.log(city.value)
     weather_el.innerHTML = '<div class="spinner-grow" role="status" ><span></span></div>'
 
@@ -26,13 +26,17 @@ async function doSubmit() {
         console.log(temperature);
 
         var type;
-        var isRaining
+        // var isRaining
 
-        if (weatherMain == 'Rain') {
-            type = 'electric'
-            isRaining = 'Sim'
-            console.log(type)
-        } else {
+        function isRaining(isRaining) {
+            if (weatherMain == 'Rain') {
+                type = 'electric'
+                return true
+                console.log(type)
+            } else {
+        }
+
+        
             if (temperature < 5) {
                 type = 'ice'
             isRaining = 'Não'
@@ -72,7 +76,7 @@ async function doSubmit() {
         const pokemonName = pokemonData.pokemon[Math.floor(Math.random() * pokemonData.pokemon.length)].pokemon.name
         console.log(pokemonName)
         let result = document.getElementById('result')
-        result.innerHTML = `Temperatura: ${temperature}ºC \n Está chovendo? ${isRaining} \n Pokemon: ${pokemonName}`
+        result.innerHTML = `Temperatura: ${temperature}ºC \n Está chovendo? ${isRaining} ❌ \n Pokemon: ${pokemonName}`
 
 
     } catch (err) {
