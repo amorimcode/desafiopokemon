@@ -30,4 +30,4 @@ Para utilizar a página basta seguir os seguintes passos:
 - [Bootstrap 4](https://getbootstrap.com)
 
 ## Licença
-Licença [MIT](LICENSE)
+Licença [MIT](LICENSE).
