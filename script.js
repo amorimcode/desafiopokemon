@@ -1,6 +1,6 @@
 
 function getWeather(city) {
-    return fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2adf549400eb9c35662f525b64b1c89a`);
+    return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2adf549400eb9c35662f525b64b1c89a`);
 }
 function getPokemon(type) {
     return fetch(`https://pokeapi.co/api/v2/type/${type}`)
@@ -10,7 +10,7 @@ function pokePhoto(pokemonName) {
 }
 
 const btn = document.querySelector('#clearButton')
-btn.addEventListener('click', ()=>{
+btn.addEventListener('click', () => {
     let result = document.getElementById('result')
     let photoDisplay = document.getElementById('photoDisplay')
     let input = document.querySelector("#city")
@@ -41,58 +41,51 @@ async function doSubmit() {
         if (weatherMain == 'Rain') {
             type = 'electric'
             isRaining = 'Sim 🌧️'
-            console.log(type)
         } else {
             if (temperature < 5) {
                 type = 'ice'
                 isRaining = 'Não ❌'
-                console.log(type);
             } else if (temperature >= 5 && temperature < 10) {
                 type = 'water'
                 isRaining = 'Não ❌'
-                console.log(type);
             } else if (temperature >= 12 && temperature < 15) {
                 type = 'grass'
                 isRaining = 'Não ❌'
-                console.log(type)
             } else if (temperature >= 15 && temperature < 21) {
                 type = 'ground'
                 isRaining = 'Não ❌'
-                console.log(type)
-                //temp 22?
             } else if (temperature >= 23 && temperature < 27) {
                 type = 'bug'
                 isRaining = 'Não ❌'
-                console.log(type)
             } else if (temperature >= 27 && temperature < 33) {
                 type = 'rock'
                 isRaining = 'Não ❌'
-                console.log(type)
             } else if (temperature > 33) {
                 type = 'fire'
-                console.log(type)
             } else {
                 type = 'normal'
                 isRaining = 'Não ❌'
             }
         }
 
-        const pokemonResponse = await getPokemon(type)
+        const pokemonResponse = await getPokemon(type);
         const pokemonData = await pokemonResponse.json();
         const pokemonName = pokemonData.pokemon[Math.floor(Math.random() * pokemonData.pokemon.length)].pokemon.name
 
         const photoResponse = await pokePhoto(pokemonName)
         const photoData = await photoResponse.json();
         const photo = photoData.sprites.front_shiny
-        
-        let result = document.getElementById('result')
-        let photoDisplay = document.getElementById('photoDisplay') 
+
+        let result = document.getElementById('result');
+        let photoDisplay = document.getElementById('photoDisplay');
         result.innerHTML = `Temperatura: ${temperature}ºC 🌡️ \n Está chovendo? ${isRaining} \n Pokemon: ${pokemonName}`
-        photoDisplay.innerHTML =  `<img src="${photo}">`
+        photoDisplay.innerHTML = `<img src="${photo}">`
 
     } catch (err) {
         let result = document.getElementById('result');
-        result.innerHTML = 'Ocorreu um erro, por favor tente novamente.'
+        let photoDisplay = document.getElementById('photoDisplay')
+        result.innerHTML = 'Erro! Por favor preencha corretamente.'
+        photoDisplay.innerHTML = ''
         console.log(err);
     }
 }
