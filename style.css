@@ -21,3 +21,8 @@
 div.container {
   align-content: center;
 }
+
+body {
+  background-image: url(./media/background.png);
+  background-position: center;
+}
