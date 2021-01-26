@@ -3,7 +3,7 @@
 ## O Desafio
 
 O **Desafio Pokémon** proposto pela [Enviabybus](https://enviabybus.com.br) consiste em uma página HTML na qual exibe informações de acordo com a temperatura da cidade pesquisada pelo usuário.
-Você pode acessar o projeto pelo [link](https://amorimcode.github.io/desafiopokemon/).
+Você pode acessar o projeto pelo [link](https://amorimcode.github.io/desafiopokemon/). Também estão disponíveis as instruções do mesmo no [GitLab](https://gitlab.com/enviabybus/weather-pokemon-test/-/tree/master/developer)
 
 ![Pokemon Screen](https://github.com/amorimcode/desafiopokemon/blob/main/media/screenshots/Screenshot%202021-01-26%20155246.png?raw=true)
 

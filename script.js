@@ -77,7 +77,7 @@ async function doSubmit() {
 
         let result = document.getElementById('result');
         let photoDisplay = document.getElementById('photoDisplay');
-        result.innerHTML = `Temperatura: ${temperature}ºC 🌡️ \n Está chovendo? ${isRaining} \n Pokemon: ${pokemonName}`
+        result.innerHTML = `Temperatura: ${temperature}ºC 🌡️ \n Está chovendo? ${isRaining} \n Pokémon: ${pokemonName}`
         photoDisplay.innerHTML = `<img src="${photo}">`
 
     } catch (err) {
