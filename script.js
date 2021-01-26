@@ -8,12 +8,16 @@ function getPokemon(type) {
 function pokePhoto(pokemonName) {
     return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
 }
-function clear() {
+
+const btn = document.querySelector('#clearButton')
+btn.addEventListener('click', ()=>{
     let result = document.getElementById('result')
     let photoDisplay = document.getElementById('photoDisplay')
+    let input = document.querySelector("#city")
+    input.value = ''
     result.innerHTML = ''
     photoDisplay.innerHTML = ''
-}
+})
 
 const form = document.querySelector('#weather_form');
 form.addEventListener("submit", el => {
